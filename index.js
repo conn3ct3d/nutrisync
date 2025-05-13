@@ -3,7 +3,8 @@ import path from 'path';
 import { fileURLToPath } from "url";
 // Route modules
 import userRoutes from './routes/userRoutes.js';
-import dietingRoutes from './routes/dietingRoutes.js'
+import dietingRoutes from './routes/dietingRoutes.js';
+import pagesRoutes from './routes/pagesRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,11 +24,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // static files
 // Mount routes
 app.use('/dieting', dietingRoutes);
 app.use('/user', userRoutes);
-
-// root route (minimal)
-app.get('/', (req,res) => {
-    res.render('layout', {title:'Nutrisync', body:'home'});
-});
+app.use('/', pagesRoutes);
 
 // Error handling middleware
 app.use((req,res,next) =>{

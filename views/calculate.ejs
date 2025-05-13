@@ -1,0 +1,17 @@
+<!-- views/calculate.ejs -->
+<h2>TDEE Calculator</h2>
+<form action="/dieting/calculate" method="POST">
+    <label>Age: <input type="number" name="age" required></label><br>
+    <label>Height (cm): <input type="number" name="height" required></label><br>
+    <label>Weight (kg): <input type="number" name="weight" required></label><br>
+    <label>Activity Level:
+        <select name="activity">
+            <option value="1.2">Sedentary</option>
+            <option value="1.375">Lightly Active</option>
+            <option value="1.55">Moderately Active</option>
+            <option value="1.725">Very Active</option>
+            <option value="1.9">Super Active</option>
+        </select>
+    </label><br>
+    <button type="submit">Calculate</button>
+</form>
